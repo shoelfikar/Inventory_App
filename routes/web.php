@@ -23,3 +23,11 @@ Route::post('/category/create', 'WEB\CategoryController@storeCategory');
 Route::get('/category/delete/{id}', 'WEB\CategoryController@deleteCategory');
 Route::get('/category/{id}', 'WEB\CategoryController@update');
 Route::patch('/category/{id}', 'WEB\CategoryController@updateCategory');
+
+
+Route::get('/products', 'WEB\ProductController@index');
+Route::get('/product/create', 'WEB\ProductController@create');
+Route::post('/product/create', 'WEB\ProductController@createProduct');
+Route::get('/product/delete/{id}', 'WEB\ProductController@deleteProduct');
+Route::get('/product/{id}', 'WEB\ProductController@update');
+Route::patch('/product/{id}', 'WEB\ProductController@updateProduct');

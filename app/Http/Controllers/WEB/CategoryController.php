@@ -27,7 +27,7 @@ class CategoryController extends Controller
         ]);
         $category = Category::createCategory($request);
         if(!$category){
-            return redirect()->back()->with('failed', 'Insert data gagal!');
+            return redirect()->back()->with('toast_error', 'Insert data gagal!');
         }
 
         return redirect('/category')->with('toast_success', 'Category berhasil dibuat!');
@@ -43,7 +43,7 @@ class CategoryController extends Controller
     {
         $category = Category::updateCategory($request, $id);
         if(!$category){
-            return redirect()->back()->with('toast_error', 'Insert data gagal!');
+            return redirect()->back()->with('toast_error', 'Update data gagal!');
         }
         return redirect('/category')->with('toast_success', 'Category berhasil di update!');
     }
