@@ -33,12 +33,12 @@
                                     {{$item->cat_desc}}
                                 </td>
                                 <td class="project-actions text-center">
-                                    <a class="btn btn-info btn-sm" href="#">
+                                    <a class="btn btn-info btn-sm" href="{{url('/category'. '/'. $item->id)}}">
                                         <i class="fas fa-pencil-alt">
                                         </i>
                                         Edit
                                     </a>
-                                    <a class="btn btn-danger btn-sm" href="#">
+                                    <a class="btn btn-danger btn-sm delete-confirm" href="{{url('/category/delete'. '/'. $item->id)}}">
                                         <i class="fas fa-trash">
                                         </i>
                                         Delete
@@ -73,6 +73,20 @@
                 "info": true,
                 "autoWidth": false,
                 "responsive": true,
+            });
+
+            $('.delete-confirm').on('click', function (event) {
+                event.preventDefault();
+                const url = $(this).attr('href');
+                swal({
+                    title: 'Anda yakin ingin menghapus data?',
+                    icon: 'warning',
+                    buttons: ["Cancel", "Yes"],
+                }).then(function(value) {
+                    if (value) {
+                        window.location.href = url;
+                    }
+                });
             });
        })
     </script>

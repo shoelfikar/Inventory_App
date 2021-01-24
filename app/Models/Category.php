@@ -23,9 +23,42 @@ class Category extends Model
         return true;
     }
 
-    public static function getCategory()
+    public static function getAllCategory()
     {
         $data = Category::get();
         return $data;
+    }
+
+    public static function getCategory($id)
+    {
+        $data = Category::where('id', $id)->first();
+        return $data;
+    }
+
+    public static function updateCategory($request, $id)
+    {
+        try {
+            DB::transaction(function () use ($request, $id){
+                Category::where('id', $id)->update([
+                    'cat_name'=> $request->cat_name,
+                    'cat_desc'=> $request->cat_desc
+                ]);
+            });
+        } catch (\Exception $e) {
+            return false;
+        }
+        return true;
+    }
+
+    public static function deleteCategory($id)
+    {
+        try {
+            DB::transaction(function () use ($id){
+                Category::where('id', $id)->delete();
+            });
+        } catch (\Exception $e) {
+            return false;
+        }
+        return true;
     }
 }

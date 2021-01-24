@@ -1,6 +1,6 @@
 @extends('layouts.template')
-@section('title', 'Create Categories')
-@section('page-title', 'Create Categories')
+@section('title', 'Update Categories')
+@section('page-title', 'Update Categories')
 
 @section('content')
     <div class="row justify-content-center">
@@ -15,11 +15,12 @@
                 </div>
               </div>
               <div class="card-body">
-                  <form action="{{url('/category/create')}}" method="POST">
+                  <form action="{{url('/category'. '/'. $category->id)}}" method="POST">
+                    @method('PATCH')
                     @csrf
                       <div class="form-group">
                         <label for="inputName">Category Name</label>
-                        <input type="text" id="inputName" class="form-control @error('cat_name') is-invalid @enderror" name="cat_name">
+                        <input type="text" id="inputName" class="form-control @error('cat_name') is-invalid @enderror" name="cat_name" value="{{$category->cat_name}}">
                         @error('cat_name')
                             <div  class="invalid-feedback">
                                 {{$message}}
@@ -28,7 +29,7 @@
                       </div>
                       <div class="form-group">
                         <label for="inputDescription">Category Description</label>
-                        <textarea id="inputDescription" class="form-control" rows="4" name="cat_desc"></textarea>
+                        <textarea id="inputDescription" class="form-control" rows="4" name="cat_desc">{{$category->cat_desc}}</textarea>
                       </div>
                       <div class="form-group text-right">
                           <a href="{{url('/category')}}" class="btn btn-secondary">Cancel</a>
