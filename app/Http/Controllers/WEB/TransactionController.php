@@ -4,19 +4,39 @@ namespace App\Http\Controllers\WEB;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 
 class TransactionController extends Controller
 {
     public function index()
     {
-        return view('pages.transaction.create');
+        $transaction = Transaction::getAllTransaction();
+        return view('pages.transaction.index', compact('transaction'));
     }
 
     public function create()
     {
         $product = Product::getAllProduct();
         return view('pages.transaction.create', compact('product'));
+    }
+
+    public function createTransaction(Request $request)
+    {
+        $this->validate($request, [
+            'price_total'=> 'required|numeric',
+            'discount_total'=> 'required|numeric',
+            'qty_total'=> 'required|numeric',
+            'type'=> 'required'
+        ], [
+            'required'=> 'Data :attribute tidak boleh kosong.',
+            'numeric'=> 'Data harus angka.'
+        ]);
+        $transaction = Transaction::createTransaction($request);
+        if(!$transaction){
+            return redirect()->back()->with('toast_error', 'Insert data gagal!');
+        }
+        return redirect('/transaction')->with('toast_success', 'Product berhasil dibuat!');
     }
 
     public function addToCart(Request $request)

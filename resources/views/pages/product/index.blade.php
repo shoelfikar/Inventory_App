@@ -18,8 +18,6 @@
                       <th>Product Name</th>
                       <th>Description</th>
                       <th>Category</th>
-                      <th>Amount</th>
-                      <th>Price</th>
                       <th>Stock</th>
                       <th>Image</th>
                       <th>Action</th>
@@ -40,7 +38,7 @@
                                         <img src="{{asset('storage/product/'. $item->product_image)}}" alt="{{$item->product_name}}" width="80">
                                     @endif
                                 </td>
-                                <td class="project-actions" style="vertical-align: middle">
+                                <td class="project-actions " style="vertical-align: middle; text-align:center">
                                     <a class="btn btn-info btn-sm" href="{{url('/product'. '/'. $item->id)}}">
                                         <i class="fas fa-pencil-alt">
                                         </i>
@@ -49,21 +47,10 @@
                                         <i class="fas fa-trash">
                                         </i>
                                     </a>
-                                    <a class="btn btn-primary btn-sm delete-confirm" href="{{url('/product/delete/'. $item->id)}}">
-                                        <i class="fas fa-cart-plus"></i>
-                                        </i>
-                                    </a>
                                 </td>
                             </tr>
                         @endforeach
                     </tbody>
-                    <tfoot>
-                    <tr>
-                        <th>Category ID</th>
-                        <th>Category Name</th>
-                        <th>Category Description</th>
-                    </tr>
-                    </tfoot>
                   </table>
                 </div>
                 <!-- /.card-body -->

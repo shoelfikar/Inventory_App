@@ -22,7 +22,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item menu-open">
-            <a href="#" class="nav-link active">
+            <a href="{{url('/')}}" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -94,15 +94,21 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/mailbox/compose.html" class="nav-link">
+                <a href="{{url('transaction/addtocart')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Create Transaction</p>
+                  <p>Add To Cart</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url('transaction/cart')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Cart</p>
                 </a>
               </li>
             </ul>
           </li>
           <li class="nav-item">
-            <a href="iframe.html" class="nav-link">
+            <a href="{{url('/logout')}}" class="nav-link">
                 <i class="nav-icon fas fa-sign-out-alt"></i>
               <p>Logout</p>
             </a>

@@ -1,48 +1,39 @@
 @extends('layouts.template')
-@section('title', 'Data Categories')
-@section('page-title', 'Data Categories')
+@section('title', 'Data Detail Transaction')
+@section('page-title', 'Data Detail Transaction')
 
 @section('content')
     <div class="row">
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                  <h3 class="card-title">Data Category</h3>
+                  <h3 class="card-title">Data Detail Transaction</h3>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
                   <table id="example2" class="table table-bordered table-hover">
                     <thead>
                     <tr>
-                      <th>Category ID</th>
-                      <th>Category Name</th>
-                      <th>Category Description</th>
+                      <th>Transaction ID</th>
+                      <th>Tanggal</th>
+                      <th>Transaction Type</th>
+                      <th>Discount</th>
+                      <th>Qty</th>
+                      <th>Total</th>
                       <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
-                        @foreach ($category as $item)
+                        @foreach ($transaction as $item)
                             <tr>
+                                <td>{{$item->id}}</td>
+                                <td>{{$item->created_at}}</td>
+                                <td>{{$item->type}}</td>
+                                <td>{{$item->discount_total}}</td>
+                                <td>{{$item->qty_total}}</td>
+                                <td>{{$item->price_total}}</td>
                                 <td>
-                                    {{$item->id}}
-                                </td>
-                                <td>
-                                    {{$item->cat_name}}
-                                </td>
-                                <td>
-                                    {{$item->cat_desc}}
-                                </td>
-                                <td class="project-actions text-center">
-                                    <a class="btn btn-info btn-sm" href="{{url('/category'. '/'. $item->id)}}">
-                                        <i class="fas fa-pencil-alt">
-                                        </i>
-                                        Edit
-                                    </a>
-                                    <a class="btn btn-danger btn-sm delete-confirm" href="{{url('/category/delete'. '/'. $item->id)}}">
-                                        <i class="fas fa-trash">
-                                        </i>
-                                        Delete
-                                    </a>
+                                    <a href="{{url('transaction/'. $item->id)}}" class="badge badge-primary">Detail</a>
                                 </td>
                             </tr>
                         @endforeach

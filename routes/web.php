@@ -32,15 +32,19 @@ Route::group(['middleware'=> 'auth'], function () {
     Route::get('/product/delete/{id}', 'WEB\ProductController@deleteProduct');
     Route::get('/product/{id}', 'WEB\ProductController@update');
     Route::patch('/product/{id}', 'WEB\ProductController@updateProduct');
+    
+    Route::get('/transaction', 'WEB\TransactionController@index');
+    Route::get('/transaction/addtocart', 'WEB\TransactionController@create');
+    Route::post('/transaction/addtocart', 'WEB\TransactionController@addToCart');
+    Route::get('/transaction/cart/{id}', 'WEB\TransactionController@deleteItemCart');
+    Route::get('/transaction/increment/{id}', 'WEB\TransactionController@qtyIncrement');
+    Route::get('/transaction/decrement/{id}', 'WEB\TransactionController@qtyDecrement');
+    Route::get('/transaction/cart', 'WEB\TransactionController@getCart');
+    Route::post('/transaction/cart', 'WEB\TransactionController@createTransaction');
+    Route::get('/transaction/detail/{id}', 'WEB\DetailTransactionController@getDetailController');
+    Route::get('/logout', 'Auth\LoginController@logout');
 });
 
-Route::get('/transaction', 'WEB\TransactionController@index');
-Route::get('/transaction/addtocart', 'WEB\TransactionController@create');
-Route::post('/transaction/addtocart', 'WEB\TransactionController@addToCart');
-Route::get('/transaction/cart/{id}', 'WEB\TransactionController@deleteItemCart');
-Route::get('/transaction/increment/{id}', 'WEB\TransactionController@qtyIncrement');
-Route::get('/transaction/decrement/{id}', 'WEB\TransactionController@qtyDecrement');
-Route::get('/transaction/cart', 'WEB\TransactionController@getCart');
 
 
 Auth::routes();

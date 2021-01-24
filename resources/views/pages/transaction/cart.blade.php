@@ -4,7 +4,8 @@
 
 @section('content')
     <div class="row">
-        <form action="" class="col-12">
+        <form action="{{url('/transaction/cart')}}" class="col-12" method="POST">
+            @csrf
             <div class="col-6">
                 <div class="card">
                     <div class="card-body">
@@ -87,7 +88,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="inputName">Total</label>
-                                <input type="text" id="inputName" class="form-control @error('price_total') is-invalid @enderror" name="price_total" value="{{number_format($amount)}}">
+                                <input type="number" id="inputName" class="form-control @error('price_total') is-invalid @enderror" name="price_total" value="{{$amount}}">
+                                <input type="number" id="inputName" name="qty_total" value="{{number_format($qty)}}" hidden>
                                 @error('price_total')
                                     <div  class="invalid-feedback">
                                         {{$message}}

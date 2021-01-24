@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\DB;
 class Transaction extends Model
 {
     protected $guarded = [];
+    public function DetailTransaction()
+    {
+        return $this->belongsTo('App\Models\DetailTransaction', 'cat_id');
+    }
     public static function createTransaction($request)
     {
         try {
@@ -35,5 +39,17 @@ class Transaction extends Model
             return false;
         }
         return true;
+    }
+
+    public static function getAllTransaction()
+    {
+        $data = Transaction::get();
+        return $data;
+    }
+
+    public static function getDetailTransaction($id)
+    {
+        $transaction = Transaction::where('id', $id)->first();
+        return $transaction;
     }
 }

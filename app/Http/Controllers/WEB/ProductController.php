@@ -26,8 +26,6 @@ class ProductController extends Controller
         $this->validate($request, [
             'product_name'=> 'required|max:255',
             'category'=> 'required',
-            'amount'=> 'required|numeric',
-            'price'=> 'required|numeric',
             'stock'=> 'required|numeric',
             'image'=> 'mimes:jpg,png,jpeg'
         ], [

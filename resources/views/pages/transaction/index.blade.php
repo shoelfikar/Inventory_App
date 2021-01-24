@@ -24,7 +24,19 @@
                     </tr>
                     </thead>
                     <tbody>
-
+                        @foreach ($transaction as $item)
+                            <tr>
+                                <td>{{$item->id}}</td>
+                                <td>{{$item->created_at}}</td>
+                                <td>{{$item->type}}</td>
+                                <td>{{$item->discount_total}}</td>
+                                <td>{{$item->qty_total}}</td>
+                                <td>{{$item->price_total}}</td>
+                                <td>
+                                    <a href="#" class="badge badge-primary">Detail</a>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                   </table>
                 </div>
