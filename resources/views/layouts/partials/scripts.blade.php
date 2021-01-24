@@ -25,9 +25,6 @@
 <script src="{{asset('admin-lte/plugins/summernote/summernote-bs4.min.js')}}"></script>
 <!-- overlayScrollbars -->
 <script src="{{asset('admin-lte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
-<script src="{{asset('admin-lte/plugins/sweetalert2/sweetalert2.min.js')}}"></script>
-<!-- Toastr -->
-<script src="{{asset('admin-lte/plugins/toastr/toastr.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('admin-lte/dist/js/adminlte.js')}}"></script>
 <script src="{{asset('admin-lte/plugins/datatables/jquery.dataTables.min.js')}}"></script>

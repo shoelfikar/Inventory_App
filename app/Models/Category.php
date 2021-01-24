@@ -22,4 +22,10 @@ class Category extends Model
         }
         return true;
     }
+
+    public static function getCategory()
+    {
+        $data = Category::get();
+        return $data;
+    }
 }

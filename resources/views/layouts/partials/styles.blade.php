@@ -13,10 +13,6 @@
 <link rel="stylesheet" href="{{asset('admin-lte/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
 <!-- iCheck -->
 <link rel="stylesheet" href="{{asset('admin-lte/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
- <!-- SweetAlert2 -->
- <link rel="stylesheet" href="{{asset('admin-lte/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css')}}">
- <!-- Toastr -->
- <link rel="stylesheet" href="{{asset('admin-lte/plugins/toastr/toastr.min.css')}}">
 <!-- JQVMap -->
 <link rel="stylesheet" href="{{asset('admin-lte/plugins/jqvmap/jqvmap.min.css')}}">
 <!-- Theme style -->

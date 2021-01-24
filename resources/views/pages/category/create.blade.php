@@ -24,7 +24,12 @@
                     @csrf
                       <div class="form-group">
                         <label for="inputName">Category Name</label>
-                        <input type="text" id="inputName" class="form-control" name="cat_name">
+                        <input type="text" id="inputName" class="form-control @error('cat_name') is-invalid @enderror" name="cat_name">
+                        @error('cat_name')
+                            <div  class="invalid-feedback">
+                                {{$message}}
+                            </div>
+                        @enderror
                       </div>
                       <div class="form-group">
                         <label for="inputDescription">Category Description</label>
@@ -32,8 +37,6 @@
                       </div>
                       <div class="form-group text-right">
                           <a href="{{url('/category')}}" class="btn btn-secondary">Cancel</a>
-                          {{-- <button type="button" class="btn btn-secondary">Create</button> --}}
-                          {{-- <a href="#" ">Create</a> --}}
                           <button type="submit" class="btn btn-primary">Create</button>
                       </div>
                   </form>
@@ -46,20 +49,7 @@
 @push('custom-script')
     <script>
         $(document).ready(function(){
-            $(function() {
-                var Toast = Swal.mixin({
-                toast: true,
-                position: 'top-end',
-                showConfirmButton: false,
-                timer: 3000
-            });
-            function showAlert(){
-                $('.swalDefaultSuccess').Toast.fire({
-                    icon: 'success',
-                    title: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
-                })
-            }
-            showAlert()
+           
         })
     </script>
 @endpush
