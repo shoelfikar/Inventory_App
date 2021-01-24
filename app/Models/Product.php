@@ -25,8 +25,6 @@ class Product extends Model
                 Product::create([
                     'product_name'=> $request->product_name,
                     'cat_id'=> $request->category,
-                    'amount'=> $request->amount,
-                    'price'=> $request->price,
                     'product_desc'=> $request->description,
                     'product_image'=> $request->image ? $product_image: '',
                     'stock'=> $request->stock

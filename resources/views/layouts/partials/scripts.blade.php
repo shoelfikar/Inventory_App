@@ -26,6 +26,7 @@
 <!-- overlayScrollbars -->
 <script src="{{asset('admin-lte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('admin-lte/dist/js/adminlte.js')}}"></script>
 <script src="{{asset('admin-lte/plugins/datatables/jquery.dataTables.min.js')}}"></script>

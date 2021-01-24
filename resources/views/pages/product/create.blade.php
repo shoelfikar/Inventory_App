@@ -41,24 +41,6 @@
                         @enderror
                       </div>
                       <div class="form-group">
-                        <label for="inputName">Amount</label>
-                        <input type="text" id="inputName" class="form-control @error('amount') is-invalid @enderror" name="amount" value="{{old('amount')}}">
-                        @error('amount')
-                            <div  class="invalid-feedback">
-                                {{$message}}
-                            </div>
-                        @enderror
-                      </div>
-                      <div class="form-group">
-                        <label for="inputName">Price</label>
-                        <input type="text" id="inputName" class="form-control @error('price') is-invalid @enderror" name="price" value="{{old('price')}}">
-                        @error('price')
-                            <div  class="invalid-feedback">
-                                {{$message}}
-                            </div>
-                        @enderror
-                      </div>
-                      <div class="form-group">
                         <label for="inputName">Stock</label>
                         <input type="text" id="inputName" class="form-control @error('stock') is-invalid @enderror" name="stock" value="{{old('stock')}}">
                         @error('stock')

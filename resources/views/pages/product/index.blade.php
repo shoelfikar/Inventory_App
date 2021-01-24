@@ -32,23 +32,25 @@
                                 <td style="vertical-align: middle">{{$item->product_name}}</td>
                                 <td style="vertical-align: middle">{{$item->product_desc}}</td>
                                 <td style="vertical-align: middle">{{$item->Category->cat_name}}</td>
-                                <td style="vertical-align: middle">Rp.{{number_format($item->amount)}}</td>
-                                <td style="vertical-align: middle">Rp.{{number_format($item->price)}}</td>
                                 <td style="vertical-align: middle; text-align:center">{{$item->stock}}</td>
                                 <td>
                                     @if ($item->product_image == "")
-                                        <img src="{{asset('storage/product/default.png')}}" alt="{{$item->product_name}}" width="100">
+                                        <img src="{{asset('storage/product/default.png')}}" alt="{{$item->product_name}}" width="80">
                                     @else
-                                        <img src="{{asset('storage/product/'. $item->product_image)}}" alt="{{$item->product_name}}" width="100">
+                                        <img src="{{asset('storage/product/'. $item->product_image)}}" alt="{{$item->product_name}}" width="80">
                                     @endif
                                 </td>
-                                <td class="project-actions text-center" style="vertical-align: middle">
+                                <td class="project-actions" style="vertical-align: middle">
                                     <a class="btn btn-info btn-sm" href="{{url('/product'. '/'. $item->id)}}">
                                         <i class="fas fa-pencil-alt">
                                         </i>
                                     </a>
                                     <a class="btn btn-danger btn-sm delete-confirm" href="{{url('/product/delete/'. $item->id)}}">
                                         <i class="fas fa-trash">
+                                        </i>
+                                    </a>
+                                    <a class="btn btn-primary btn-sm delete-confirm" href="{{url('/product/delete/'. $item->id)}}">
+                                        <i class="fas fa-cart-plus"></i>
                                         </i>
                                     </a>
                                 </td>
